@@ -1,129 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emma & Liam | Wedding</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Celebration</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #fff;
-            color: #444;
-        }
+<style>
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: 'Poppins', sans-serif; color:#444; line-height:1.6; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; color:#7a4a3b; }
+    section { padding:60px 20px; text-align:center; }
+    .divider { width:60px; height:2px; background:#cfa18d; margin:20px auto; }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: #7a4a3b;
-        }
+    /* HERO */
+    .hero {
+        height: 80vh;
+        background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+                    url("5da3a1a8-7442-4bc5-8e2a-61ae199bc00b.jpg") center/cover no-repeat;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+    .hero h1 { font-size: 45px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; letter-spacing:1.5px; }
 
-        section {
-            padding: 80px 20px;
-            text-align: center;
-        }
+    /* STORY */
+    .story p { max-width:600px; margin:auto; line-height:1.8; font-size:16px; }
 
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
-                        url("https://images.unsplash.com/photo-1529634597503-139d3726fed5") center/cover;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    /* EVENTS */
+    .events { background:#f8f3f0; }
+    .event-box { max-width:300px; margin:20px auto; background:#fff; padding:25px; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,.05); }
 
-        .hero h1 {
-            font-size: 60px;
-            margin: 0;
-            color: #fff;
-        }
+    /* GALLERY */
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; padding:0 10px; }
+    .gallery img { width:100%; border-radius:10px; display:block; }
 
-        .hero p {
-            font-size: 20px;
-            letter-spacing: 2px;
-        }
+    /* RSVP */
+    .rsvp form { max-width:350px; margin:auto; display:flex; flex-direction:column; }
+    input, button { width:100%; padding:12px; margin:8px 0; border-radius:5px; border:1px solid #ddd; font-size:16px; }
+    button { background:#7a4a3b; color:#fff; border:none; cursor:pointer; transition:0.3s; }
+    button:hover { background:#5f382d; }
 
-        .divider {
-            width: 80px;
-            height: 2px;
-            background: #cfa18d;
-            margin: 20px auto;
-        }
+    footer { background:#7a4a3b; color:#fff; padding:20px; text-align:center; font-size:16px; }
 
-        .story p {
-            max-width: 700px;
-            margin: auto;
-            line-height: 1.8;
-        }
-
-        .events {
-            background: #f8f3f0;
-        }
-
-        .event-box {
-            max-width: 300px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.05);
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-            gap: 15px;
-            padding: 0 20px;
-        }
-
-        .gallery img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .rsvp form {
-            max-width: 400px;
-            margin: auto;
-        }
-
-        input, button {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-        }
-
-        button {
-            background: #7a4a3b;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #5f382d;
-        }
-
-        footer {
-            background: #7a4a3b;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
+    /* RESPONSIVE */
+    @media (max-width:768px){ .hero h1{font-size:35px;} .hero p{font-size:16px;} section{padding:50px 15px;} }
+    @media (max-width:480px){ .hero h1{font-size:28px;} .hero p{font-size:14px;} .story p{font-size:15px;} .event-box{padding:20px;} input,button{font-size:15px;} }
+</style>
 </head>
 <body>
 
 <!-- HERO -->
 <section class="hero">
-    <h1>Emma & Liam</h1>
+    <h1 id="guestName">Dear Guest</h1>
     <div class="divider"></div>
-    <p>ARE GETTING MARRIED</p>
+    <p>Welcome to our Wedding Celebration</p>
     <p>September 21, 2026</p>
 </section>
 
@@ -146,7 +82,7 @@
     <div class="event-box">
         <h3>Ceremony</h3>
         <p>10:00 AM</p>
-        <p>St. Mary Church</p>
+        <p>___place___</p>
     </div>
 
     <div class="event-box">
@@ -162,27 +98,22 @@
     <div class="divider"></div>
 
     <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919">
+        <img src="2.jpg">
+        <img src="1.jpg">
     </div>
 </section>
-
-<!-- RSVP -->
-<section class="rsvp">
-    <h2>RSVP</h2>
-    <div class="divider"></div>
-
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <button type="submit">Confirm Attendance</button>
-    </form>
-</section>
-
 <footer>
-    <p>With Love, Emma & Liam ❤️</p>
+    <p>With Love, Kimmeng & Sreymean ❤️</p>
 </footer>
+
+<script>
+    // Get query string name
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    if(name){
+        document.getElementById('guestName').textContent = `Dear ${name}`;
+    }
+</script>
 
 </body>
 </html>
