@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma & Liam | Wedding</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #444;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #7a4a3b;
+        }
+
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+                        url("https://images.unsplash.com/photo-1529634597503-139d3726fed5") center/cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin: 0;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background: #cfa18d;
+            margin: 20px auto;
+        }
+
+        .story p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        .events {
+            background: #f8f3f0;
+        }
+
+        .event-box {
+            max-width: 300px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.05);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .rsvp form {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        button {
+            background: #7a4a3b;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5f382d;
+        }
+
+        footer {
+            background: #7a4a3b;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Emma & Liam</h1>
+    <div class="divider"></div>
+    <p>ARE GETTING MARRIED</p>
+    <p>September 21, 2026</p>
+</section>
+
+<!-- STORY -->
+<section class="story">
+    <h2>Our Love Story</h2>
+    <div class="divider"></div>
+    <p>
+        From the moment we met, our journey together has been filled with love,
+        laughter, and unforgettable memories. We are so excited to celebrate
+        our special day with the people we love most.
+    </p>
+</section>
+
+<!-- EVENTS -->
+<section class="events">
+    <h2>Wedding Events</h2>
+    <div class="divider"></div>
+
+    <div class="event-box">
+        <h3>Ceremony</h3>
+        <p>10:00 AM</p>
+        <p>St. Mary Church</p>
+    </div>
+
+    <div class="event-box">
+        <h3>Reception</h3>
+        <p>6:00 PM</p>
+        <p>Golden Rose Ballroom</p>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+    <h2>Our Moments</h2>
+    <div class="divider"></div>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919">
+    </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp">
+    <h2>RSVP</h2>
+    <div class="divider"></div>
+
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <button type="submit">Confirm Attendance</button>
+    </form>
+</section>
+
+<footer>
+    <p>With Love, Emma & Liam ❤️</p>
+</footer>
+
+</body>
+</html>
