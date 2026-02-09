@@ -32,6 +32,26 @@
         overflow: hidden;
         height: 100vh;
     }
+
+    /* INVITATION STYLE SCROLL (iPhone friendly) */
+    .invitation {
+        scroll-snap-type: y mandatory;
+    }
+
+        .invitation section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+    /* Make every main section feel like a page */
+    section {
+        min-height: 100vh;
+    }
+
+
+
+
+
     
     /* SPLASH SCREEN */
     .splash-screen {
@@ -659,7 +679,6 @@
     
     .gallery-section p {
         font-size: 18px;
-        color: #546e7a;
         margin-bottom: 50px;
     }
     
@@ -885,420 +904,439 @@
             display: none;
         }
     }
+
+    /* iPhone Safari fixes */
+    @supports (-webkit-touch-callout: none) {
+        body {
+            overscroll-behavior-y: contain;
+        }
+
+        .invitation {
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+    button, a {
+        touch-action: manipulation;
+    }
 </style>
 </head>
 <body>
-
-<!-- SPLASH SCREEN OVERLAY -->
-<div id="splashScreen" class="splash-screen">
-    <div class="splash-content">
-        <p class="splash-greeting" id="splashGuestName">Dear Guest</p>
-        <div class="ornament"></div>
-        <p class="splash-subtitle">YOU ARE INVITED TO THE WEDDING OF</p>
-        <h1 class="splash-name">Kong Kim Meng</h1>
-        <span class="splash-ampersand">&</span>
-        <h1 class="splash-name">Ros Sreymean</h1>
-        <div class="ornament"></div>
-        <p class="splash-tagline">Cordially Invite You</p>
-        <button id="openWeddingBtn" class="open-wedding-btn">Open Wedding Invitation</button>
-    </div>
-</div>
-
-<!-- HERO SECTION -->
-<section class="hero">
-    <div class="hero-content">
-        <p id="guestName" class="guest-greeting">Dear Guest</p>
-        <div class="ornament"></div>
-        <p style="font-size: 16px; color: #546e7a; margin-bottom: 25px; letter-spacing: 2px;">YOU ARE INVITED TO THE WEDDING OF</p>
-        <h1>Kong Kim Meng</h1>
-        <span class="ampersand">&</span>
-        <h1>Ros Sreymean</h1>
-        <div class="ornament"></div>
-        <p class="tagline">Cordially Invite You</p>
-        <a href="#date-section" class="see-wedding-btn">See Wedding Details</a>
-    </div>
-    
-    <!-- Floating Music Player -->
-    <div class="music-player">
-        <button id="musicToggle" class="music-btn" aria-label="Play music">
-            <span class="play-icon">▶</span>
-            <span class="pause-icon" style="display: none;">⏸</span>
-        </button>
-        <div class="music-info">
-            <span class="music-text">Wedding Music</span>
-        </div>
-    </div>
-    
-    <!-- Hidden Audio Element -->
-    <audio id="weddingMusic" loop preload="auto">
-        <source src="mylove.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-</section>
-
-<!-- DATE ANNOUNCEMENT -->
-<section class="date-section" id="date-section">
-    <div class="date-box">
-        <h2>Save The Date</h2>
-        <div class="ornament"></div>
-        <div class="date-info">
-            <p>We joyfully invite you to celebrate our union</p>
-            <p class="date-highlight">Sunday, March 1st, 2026</p>
-            <p>at 4:30 PM</p>
-            <p style="margin-top: 20px; font-style: italic;">
-                ពិធីរៀបការពិវាហ៍<br>
-                ថ្ងៃទី០១ ខែមីនា ឆ្នាំ២០២៦ ម៉ោង ៤:៣០ ល្ងាច
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- TIMELINE - DAY 1 -->
-<section class="timeline-section">
-    <h2>Wedding Ceremonies</h2>
-    
-    <div class="timeline-container">
-        <!-- Day 1: February 28, 2026 -->
-        <div class="timeline-day">
-            <h3>Day 1 - Pre-Wedding Ceremonies</h3>
-            <p class="day-date">Friday, February 28, 2026 | ថ្ងៃសុក្រ ទី២៨ ខែកុម្ភៈ ឆ្នាំ២០២៦</p>
-            
-            <div class="event-item">
-                <div class="event-time">06:30 AM</div>
-                <div class="event-details">
-                    <h4>Gathering of Guests</h4>
-                    <p>ជួបជុំភ្ញៀវកិត្តិយសដើម្បីរៀបចំហែរជំនូន</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">07:00 AM</div>
-                <div class="event-details">
-                    <h4>Procession Ceremony</h4>
-                    <p>ពិធីហែរជំនូនកំណត់ចូលមង្គលជ័យ</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">07:30 AM</div>
-                <div class="event-details">
-                    <h4>Traditional Welcoming Ritual</h4>
-                    <p>ពិធីម៉េនិយជើងរាំ ហែរព្រាន រៀបបាយផ្កាឈើនិងពិជេរពេលព្រឹក</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">08:00 AM</div>
-                <div class="event-details">
-                    <h4>Groom's Grooming Ceremony</h4>
-                    <p>ពិធីបំពាក់ជីនេ</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">09:00 AM</div>
-                <div class="event-details">
-                    <h4>Hair Cutting Ceremony</h4>
-                    <p>ពិធីកាត់សក់បង្កាន់ស្លា កូនប្រុស-កូនស្រី</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">11:00 AM</div>
-                <div class="event-details">
-                    <h4>Sacred Offering Ceremony</h4>
-                    <p>ពិធីសំពះផឹមចង្ហាន់ដ័ង បូជាភ្លើង ពល្លិល និងព្រះទ្វាងទ្វែងថ្ងៃ</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">12:00 PM</div>
-                <div class="event-details">
-                    <h4>Luncheon Reception</h4>
-                    <p>អញ្ជើញភ្ញៀវកិត្តិយសពិសារថ្ងៃត្រង់ បញ្ចប់កិច្ចការពិវាហ៍</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">05:00 PM</div>
-                <div class="event-details">
-                    <h4>Evening Celebration</h4>
-                    <p>អញ្ជើញភ្ញៀវកិត្តិយសពិជេរ ថ្វាយគ្រឿងទេសបងស្អី សូមអរគុណ!</p>
-                </div>
+    <div class="invitation">
+        <!-- SPLASH SCREEN OVERLAY -->
+        <div id="splashScreen" class="splash-screen">
+            <div class="splash-content">
+                <p class="splash-greeting" id="splashGuestName">Dear Guest</p>
+                <div class="ornament"></div>
+                <p class="splash-subtitle">YOU ARE INVITED TO THE WEDDING OF</p>
+                <h1 class="splash-name">Kong Kim Meng</h1>
+                <span class="splash-ampersand">&</span>
+                <h1 class="splash-name">Ros Sreymean</h1>
+                <div class="ornament"></div>
+                <p class="splash-tagline">Cordially Invite You</p>
+                <button id="openWeddingBtn" class="open-wedding-btn">Open Wedding Invitation</button>
             </div>
         </div>
-        
-        <!-- Day 2: March 1, 2026 -->
-        <div class="timeline-day">
-            <h3>Day 2 - Wedding Day</h3>
-            <p class="day-date">Sunday, March 1, 2026 | ថ្ងៃទិត្យ ទី០១ ខែមីនា ឆ្នាំ២០២៦</p>
-            
-            <div class="event-item">
-                <div class="event-time">03:00 PM</div>
-                <div class="event-details">
-                    <h4>Kong Lea Ceremony</h4>
-                    <p>ពិធីហែរកុងលី</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">04:00 PM</div>
-                <div class="event-details">
-                    <h4>Blessing Ceremony</h4>
-                    <p>ពិធីសូត្រមន្តជម្រើនព្រះបរ</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">05:00 PM</div>
-                <div class="event-details">
-                    <h4>Knot Tying & Prayer Ceremony</h4>
-                    <p>ពិធីជុំព្រ័ន្ឋ និងវន្ទា</p>
-                </div>
-            </div>
-            
-            <div class="event-item">
-                <div class="event-time">06:30 PM</div>
-                <div class="event-details">
-                    <h4>Grand Reception Dinner</h4>
-                    <p>អញ្ជើញភ្ញៀវកិត្តិយសពិសារពេលល្ងាច</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- LOCATION -->
-<section class="location-section">
-    <h2>Venue</h2>
-    <div class="ornament"></div>
-    
-    <div class="location-box">
-        <p><strong>Sam Village, Khseth Commune</strong></p>
-        <p>Kampong Ror District</p>
-        <p>Svay Rieng Province</p>
-        <p style="margin-top: 20px; color: #0277bd; font-style: italic;">
-            ភូមិសាំម៉ៃ ឃុំខ្សែត្រ ស្រុកកំពង់រោទ៍<br>
-            ខេត្តស្វាយរៀង
-        </p>
-        
-        <div class="contact-info">
-            <h3>Contact Information</h3>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-content">
+                <p id="guestName" class="guest-greeting">Dear Guest</p>
+                <div class="ornament"></div>
+                <p style="font-size: 16px; color: #546e7a; margin-bottom: 25px; letter-spacing: 2px;">YOU ARE INVITED TO THE WEDDING OF</p>
+                <h1>Kong Kim Meng</h1>
+                <span class="ampersand">&</span>
+                <h1>Ros Sreymean</h1>
+                <div class="ornament"></div>
+                <p class="tagline">Cordially Invite You</p>
+                <a href="#date-section" class="see-wedding-btn">See Wedding Details</a>
+            </div>
+
+            <!-- Floating Music Player -->
+            <div class="music-player">
+                <button id="musicToggle" class="music-btn" aria-label="Play music">
+                    <span class="play-icon">▶</span>
+                    <span class="pause-icon" style="display: none;">⏸</span>
+                </button>
+                <div class="music-info">
+                    <span class="music-text">Wedding Music</span>
+                </div>
+            </div>
+
+            <!-- Hidden Audio Element -->
+            <audio id="weddingMusic" loop preload="auto">
+                <source src="mylove.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <!-- DATE ANNOUNCEMENT -->
+        <section class="date-section" id="date-section">
+            <div class="date-box">
+                <h2>Save The Date</h2>
+                <div class="ornament"></div>
+                <div class="date-info">
+                    <p>We joyfully invite you to celebrate our union</p>
+                    <p class="date-highlight">Sunday, March 1st, 2026</p>
+                    <p>at 4:30 PM</p>
+                    <p style="margin-top: 20px; font-style: italic;">
+                        ពិធីរៀបការពិវាហ៍<br>
+                        ថ្ងៃទី០១ ខែមីនា ឆ្នាំ២០២៦ ម៉ោង ៤:៣០ ល្ងាច
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMELINE - DAY 1 -->
+        <section class="timeline-section">
+            <h2>Wedding Ceremonies</h2>
+
+            <div class="timeline-container">
+                <!-- Day 1: February 28, 2026 -->
+                <div class="timeline-day">
+                    <h3>Day 1 - Pre-Wedding Ceremonies</h3>
+                    <p class="day-date">Friday, February 28, 2026 | ថ្ងៃសុក្រ ទី២៨ ខែកុម្ភៈ ឆ្នាំ២០២៦</p>
+
+                    <div class="event-item">
+                        <div class="event-time">06:30 AM</div>
+                        <div class="event-details">
+                            <h4>Gathering of Guests</h4>
+                            <p>ជួបជុំភ្ញៀវកិត្តិយសដើម្បីរៀបចំហែរជំនូន</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">07:00 AM</div>
+                        <div class="event-details">
+                            <h4>Procession Ceremony</h4>
+                            <p>ពិធីហែរជំនូនកំណត់ចូលមង្គលជ័យ</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">07:30 AM</div>
+                        <div class="event-details">
+                            <h4>Traditional Welcoming Ritual</h4>
+                            <p>ពិធីម៉េនិយជើងរាំ ហែរព្រាន រៀបបាយផ្កាឈើនិងពិជេរពេលព្រឹក</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">08:00 AM</div>
+                        <div class="event-details">
+                            <h4>Groom's Grooming Ceremony</h4>
+                            <p>ពិធីបំពាក់ជីនេ</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">09:00 AM</div>
+                        <div class="event-details">
+                            <h4>Hair Cutting Ceremony</h4>
+                            <p>ពិធីកាត់សក់បង្កាន់ស្លា កូនប្រុស-កូនស្រី</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">11:00 AM</div>
+                        <div class="event-details">
+                            <h4>Sacred Offering Ceremony</h4>
+                            <p>ពិធីសំពះផឹមចង្ហាន់ដ័ង បូជាភ្លើង ពល្លិល និងព្រះទ្វាងទ្វែងថ្ងៃ</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">12:00 PM</div>
+                        <div class="event-details">
+                            <h4>Luncheon Reception</h4>
+                            <p>អញ្ជើញភ្ញៀវកិត្តិយសពិសារថ្ងៃត្រង់ បញ្ចប់កិច្ចការពិវាហ៍</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">05:00 PM</div>
+                        <div class="event-details">
+                            <h4>Evening Celebration</h4>
+                            <p>អញ្ជើញភ្ញៀវកិត្តិយសពិជេរ ថ្វាយគ្រឿងទេសបងស្អី សូមអរគុណ!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2: March 1, 2026 -->
+                <div class="timeline-day">
+                    <h3>Day 2 - Wedding Day</h3>
+                    <p class="day-date">Sunday, March 1, 2026 | ថ្ងៃទិត្យ ទី០១ ខែមីនា ឆ្នាំ២០២៦</p>
+
+                    <div class="event-item">
+                        <div class="event-time">03:00 PM</div>
+                        <div class="event-details">
+                            <h4>Kong Lea Ceremony</h4>
+                            <p>ពិធីហែរកុងលី</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">04:00 PM</div>
+                        <div class="event-details">
+                            <h4>Blessing Ceremony</h4>
+                            <p>ពិធីសូត្រមន្តជម្រើនព្រះបរ</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">05:00 PM</div>
+                        <div class="event-details">
+                            <h4>Knot Tying & Prayer Ceremony</h4>
+                            <p>ពិធីជុំព្រ័ន្ឋ និងវន្ទា</p>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-time">06:30 PM</div>
+                        <div class="event-details">
+                            <h4>Grand Reception Dinner</h4>
+                            <p>អញ្ជើញភ្ញៀវកិត្តិយសពិសារពេលល្ងាច</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATION -->
+        <section class="location-section">
+            <h2>Venue</h2>
             <div class="ornament"></div>
-            <p>សំរាប់ទីតាំងកម្មវិធី</p>
-            <div class="phone-numbers">
-                <a href="tel:087474944">📞 087 474 944</a>
-                <a href="tel:0968640409">📞 096 86 40409</a>
-                <a href="tel:0884482880">📞 088 448 2880</a>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- PHOTO GALLERY -->
-<section class="gallery-section">
-    <h2>Our Love Story</h2>
-    <div class="ornament"></div>
-    <p>Our journey from the day we met to forever</p>
-    
-    <div class="gallery-grid">
-        <div class="gallery-item">
-           <img src="photo1.jpg" alt="Wedding Photo 1">
-            <!-- Replace with: <img src="your-photo-1.jpg" alt="When we first met"> -->
-            <div class="photo-caption">
-                <div class="photo-year">2020</div>
-                <p class="photo-description">When We First Met</p>
-            </div>
-        </div>
-        
-        <div class="gallery-item">
-           <img src="photo2.jpg" alt="Wedding Photo 1">
-            <!-- Replace with: <img src="your-photo-2.jpg" alt="Our first date"> -->
-            <div class="photo-caption">
-                <div class="photo-year">2021</div>
-                <p class="photo-description">Our First Date</p>
-            </div>
-        </div>
-        
-        <div class="gallery-item">
-           <img src="photo3.jpg" alt="Wedding Photo 1">
+            <div class="location-box">
+                <p><strong>Sam Village, Khseth Commune</strong></p>
+                <p>Kampong Ror District</p>
+                <p>Svay Rieng Province</p>
+                <p style="margin-top: 20px; color: #0277bd; font-style: italic;">
+                    ភូមិសាំម៉ៃ ឃុំខ្សែត្រ ស្រុកកំពង់រោទ៍<br>
+                    ខេត្តស្វាយរៀង
+                </p>
 
-            <!-- Replace with: <img src="your-photo-3.jpg" alt="The proposal"> -->
-            <div class="photo-caption">
-                <div class="photo-year">2024</div>
-                <p class="photo-description">The Proposal</p>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="ornament"></div>
+                    <p>សំរាប់ទីតាំងកម្មវិធី</p>
+                    <div class="phone-numbers">
+                        <a href="tel:087474944">📞 087 474 944</a>
+                        <a href="tel:0968640409">📞 096 86 40409</a>
+                        <a href="tel:0884482880">📞 088 448 2880</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="gallery-item">
-           <img src="photo4.jpg" alt="Wedding Photo 1">
-            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
-            <div class="photo-caption">
-                <div class="photo-year">2025</div>
-                <p class="photo-description">Engagement Celebration</p>
-            </div>
-        </div>
- <div class="gallery-item">
-           <img src="photo5.jpg" alt="Wedding Photo 1">
-            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
-            <div class="photo-caption">
-                <div class="photo-year">2025</div>
-                <p class="photo-description">Engagement Celebration</p>
-            </div>
-        </div>
- <div class="gallery-item">
-           <img src="photo6.jpg" alt="Wedding Photo 1">
-            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
-            <div class="photo-caption">
-                <div class="photo-year">2025</div>
-                <p class="photo-description">Engagement Celebration</p>
-            </div>
-        </div>
+        </section>
 
-    </div>
-</section>
-
-<!-- PARENTS -->
-<section class="parents-section">
-    <h2>Our Beloved Parents</h2>
-    <div class="ornament"></div>
-    
-    <div class="parents-container">
-        <div class="parent-card">
-            <h3>Groom's Parents</h3>
+        <!-- PHOTO GALLERY -->
+        <section class="gallery-section">
+            <h2>Our Love Story</h2>
             <div class="ornament"></div>
-            <p class="parent-name">Mr. Taing Muykong</p>
-            <p class="parent-name">Mrs. Hak Srouy</p>
-            <p style="margin-top: 15px; color: #546e7a;">
-                លោក តាំង មុយគង់<br>
-                អ្នកស្រី ហាក់ ស្រួយ
-            </p>
-        </div>
-        
-        <div class="parent-card">
-            <h3>Bride's Parents</h3>
+            <p>Our journey from the day we met to forever</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="photo1.jpg" alt="Wedding Photo 1">
+                    <!-- Replace with: <img src="your-photo-1.jpg" alt="When we first met"> -->
+                    <div class="photo-caption">
+                        <div class="photo-year">2020</div>
+                        <p class="photo-description">When We First Met</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="photo2.jpg" alt="Wedding Photo 1">
+                    <!-- Replace with: <img src="your-photo-2.jpg" alt="Our first date"> -->
+                    <div class="photo-caption">
+                        <div class="photo-year">2021</div>
+                        <p class="photo-description">Our First Date</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="photo3.jpg" alt="Wedding Photo 1">
+
+                    <!-- Replace with: <img src="your-photo-3.jpg" alt="The proposal"> -->
+                    <div class="photo-caption">
+                        <div class="photo-year">2024</div>
+                        <p class="photo-description">The Proposal</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="photo4.jpg" alt="Wedding Photo 1">
+                    <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
+                    <div class="photo-caption">
+                        <div class="photo-year">2025</div>
+                        <p class="photo-description">Engagement Celebration</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo5.jpg" alt="Wedding Photo 1">
+                    <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
+                    <div class="photo-caption">
+                        <div class="photo-year">2025</div>
+                        <p class="photo-description">Engagement Celebration</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photo6.jpg" alt="Wedding Photo 1">
+                    <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
+                    <div class="photo-caption">
+                        <div class="photo-year">2025</div>
+                        <p class="photo-description">Engagement Celebration</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PARENTS -->
+        <section class="parents-section">
+            <h2>Our Beloved Parents</h2>
             <div class="ornament"></div>
-            <p class="parent-name">Mr. Dam Sona</p>
-            <p class="parent-name">Mrs. Chhim Saly</p>
-            <p style="margin-top: 15px; color: #546e7a;">
-                លោក ដាំ សូណា<br>
-                អ្នកស្រី ឈឹម សាលី
-            </p>
-        </div>
-    </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-    <p>We look forward to celebrating with you</p>
-    <p class="heart">❤</p>
-    <p>Kong Kim Meng & Ros Sreymean</p>
-    <p style="margin-top: 20px; font-size: 16px;">គុង គីមមេង & រស់ ស្រីមាន</p>
-</footer>
+            <div class="parents-container">
+                <div class="parent-card">
+                    <h3>Groom's Parents</h3>
+                    <div class="ornament"></div>
+                    <p class="parent-name">Mr. Taing Muykong</p>
+                    <p class="parent-name">Mrs. Hak Srouy</p>
+                    <p style="margin-top: 15px; color: #546e7a;">
+                        លោក តាំង មុយគង់<br>
+                        អ្នកស្រី ហាក់ ស្រួយ
+                    </p>
+                </div>
 
-<script>
-    // Prevent scrolling initially
-    document.documentElement.classList.add('no-scroll');
-    document.body.classList.add('no-scroll');
-    
-    // Get guest name from query string
-    const urlParams = new URLSearchParams(window.location.search);
-    const guestName = urlParams.get('name');
-    
-    if (guestName) {
-        document.getElementById('guestName').textContent = `Dear ${guestName}`;
-        document.getElementById('splashGuestName').textContent = `Dear ${guestName}`;
-    }
-    
-    // Music player functionality
-    const musicToggle = document.getElementById('musicToggle');
-    const weddingMusic = document.getElementById('weddingMusic');
-    const playIcon = document.querySelector('.play-icon');
-    const pauseIcon = document.querySelector('.pause-icon');
-    const splashScreen = document.getElementById('splashScreen');
-    const openWeddingBtn = document.getElementById('openWeddingBtn');
-    
-    let isPlaying = false;
-    let audioInitialized = false;
-    
-    // Function to initialize and play audio
-    function initAndPlayAudio() {
-        if (!audioInitialized) {
-            weddingMusic.load();
-            audioInitialized = true;
-        }
-        
-        weddingMusic.play().then(function() {
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'inline';
-            musicToggle.classList.add('playing');
-            isPlaying = true;
-        }).catch(function(error) {
-            console.log('Audio playback failed:', error);
-        });
-    }
-    
-    // Open Wedding Button Click Handler
-    openWeddingBtn.addEventListener('click', function() {
-        // Hide splash screen
-        splashScreen.classList.add('hidden');
-        
-        // Enable scrolling
-        document.documentElement.classList.remove('no-scroll');
-        document.body.classList.remove('no-scroll');
-        
-        // Start music
-        initAndPlayAudio();
-        
-        // Scroll to top smoothly (in case user scrolled on splash)
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    // Manual toggle control
-    musicToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        if (isPlaying) {
-            weddingMusic.pause();
-            playIcon.style.display = 'inline';
-            pauseIcon.style.display = 'none';
-            musicToggle.classList.remove('playing');
-            isPlaying = false;
-        } else {
-            initAndPlayAudio();
-        }
-    });
-    
-    // Handle audio events
-    weddingMusic.addEventListener('play', function() {
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = 'inline';
-        musicToggle.classList.add('playing');
-        isPlaying = true;
-    });
-    
-    weddingMusic.addEventListener('pause', function() {
-        playIcon.style.display = 'inline';
-        pauseIcon.style.display = 'none';
-        musicToggle.classList.remove('playing');
-        isPlaying = false;
-    });
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                <div class="parent-card">
+                    <h3>Bride's Parents</h3>
+                    <div class="ornament"></div>
+                    <p class="parent-name">Mr. Dam Sona</p>
+                    <p class="parent-name">Mrs. Chhim Saly</p>
+                    <p style="margin-top: 15px; color: #546e7a;">
+                        លោក ដាំ សូណា<br>
+                        អ្នកស្រី ឈឹម សាលី
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>We look forward to celebrating with you</p>
+            <p class="heart">❤</p>
+            <p>Kong Kim Meng & Ros Sreymean</p>
+            <p style="margin-top: 20px; font-size: 16px;">គុង គីមមេង & រស់ ស្រីមាន</p>
+        </footer>
+
+        <script>
+            // Prevent scrolling initially
+            document.documentElement.classList.add('no-scroll');
+            document.body.classList.add('no-scroll');
+
+            // Get guest name from query string
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestName = urlParams.get('name');
+
+            if (guestName) {
+                document.getElementById('guestName').textContent = `Dear ${guestName}`;
+                document.getElementById('splashGuestName').textContent = `Dear ${guestName}`;
+            }
+
+            // Music player functionality
+            const musicToggle = document.getElementById('musicToggle');
+            const weddingMusic = document.getElementById('weddingMusic');
+            const playIcon = document.querySelector('.play-icon');
+            const pauseIcon = document.querySelector('.pause-icon');
+            const splashScreen = document.getElementById('splashScreen');
+            const openWeddingBtn = document.getElementById('openWeddingBtn');
+
+            let isPlaying = false;
+            let audioInitialized = false;
+
+            // Function to initialize and play audio
+            function initAndPlayAudio() {
+                if (!audioInitialized) {
+                    weddingMusic.load();
+                    audioInitialized = true;
+                }
+
+                weddingMusic.play().then(function () {
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'inline';
+                    musicToggle.classList.add('playing');
+                    isPlaying = true;
+                }).catch(function (error) {
+                    console.log('Audio playback failed:', error);
                 });
             }
-        });
-    });
-</script>
 
+            // Open Wedding Button Click Handler
+            openWeddingBtn.addEventListener('click', function () {
+                // Hide splash screen
+                splashScreen.classList.add('hidden');
+
+                // Enable scrolling
+                document.documentElement.classList.remove('no-scroll');
+                document.body.classList.remove('no-scroll');
+
+                // Start music
+                initAndPlayAudio();
+
+                // Smooth "page turn" into first section
+                setTimeout(() => {
+                    document.querySelector('.hero').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300);
+            });
+
+            // Manual toggle control
+            musicToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (isPlaying) {
+                    weddingMusic.pause();
+                    playIcon.style.display = 'inline';
+                    pauseIcon.style.display = 'none';
+                    musicToggle.classList.remove('playing');
+                    isPlaying = false;
+                } else {
+                    initAndPlayAudio();
+                }
+            });
+
+            // Handle audio events
+            weddingMusic.addEventListener('play', function () {
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'inline';
+                musicToggle.classList.add('playing');
+                isPlaying = true;
+            });
+
+            weddingMusic.addEventListener('pause', function () {
+                playIcon.style.display = 'inline';
+                pauseIcon.style.display = 'none';
+                musicToggle.classList.remove('playing');
+                isPlaying = false;
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        </script>
+    </div>
 </body>
 </html>
