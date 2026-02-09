@@ -141,6 +141,32 @@
         letter-spacing: 1px;
     }
     
+    .see-wedding-btn {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 15px 40px;
+        background: linear-gradient(135deg, #FFD700, #FFA000);
+        color: #0277bd;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 50px;
+        box-shadow: 0 8px 20px rgba(255,215,0,0.4);
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+        animation: fadeIn 1.2s ease-out 1.2s both;
+    }
+    
+    .see-wedding-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(255,215,0,0.6);
+        background: linear-gradient(135deg, #FFA000, #FFD700);
+    }
+    
+    .see-wedding-btn:active {
+        transform: translateY(-1px);
+    }
+    
     /* MUSIC PLAYER */
     .music-player {
         position: fixed;
@@ -512,7 +538,7 @@
         overflow: hidden;
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        aspect-ratio: 2/3;
+        aspect-ratio: 4/3;
         background: linear-gradient(135deg, #e3f2fd 0%, #fff9e6 100%);
         border: 3px solid #FFD700;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -588,6 +614,17 @@
         .gallery-item {
             aspect-ratio: 3/4;
         }
+        
+        .photo-year {
+            font-size: 38px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+        
+        .photo-description {
+            font-size: 17px;
+            font-weight: 500;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
     }
     
     .photo-year {
@@ -613,6 +650,11 @@
         .hero .tagline { font-size: 14px; }
         .hero-content { padding: 40px 25px; }
         .guest-greeting { font-size: 32px; }
+        .see-wedding-btn { 
+            font-size: 16px; 
+            padding: 12px 35px;
+            margin-top: 25px;
+        }
         .date-box h2 { font-size: 32px; }
         .date-info { font-size: 18px; }
         .timeline-section h2, .location-section h2, .parents-section h2, .gallery-section h2 { font-size: 36px; }
@@ -648,6 +690,11 @@
         .hero h1 { font-size: 28px; }
         .hero .ampersand { font-size: 40px; }
         .guest-greeting { font-size: 26px; }
+        .see-wedding-btn { 
+            font-size: 15px; 
+            padding: 12px 30px;
+            margin-top: 20px;
+        }
         .date-highlight { font-size: 24px; }
         .timeline-day h3 { font-size: 26px; }
         .event-time { font-size: 16px; }
@@ -692,6 +739,7 @@
         <h1>Ros Sreymean</h1>
         <div class="ornament"></div>
         <p class="tagline">Cordially Invite You</p>
+        <a href="#date-section" class="see-wedding-btn">See Wedding Details</a>
     </div>
     
     <!-- Floating Music Player -->
@@ -707,13 +755,13 @@
     
     <!-- Hidden Audio Element -->
     <audio id="weddingMusic" loop preload="auto" autoplay>
-        <source src="mylove.mp3" type="audio/mpeg">
+        <source src="wedding-music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </section>
 
 <!-- DATE ANNOUNCEMENT -->
-<section class="date-section">
+<section class="date-section" id="date-section">
     <div class="date-box">
         <h2>Save The Date</h2>
         <div class="ornament"></div>
@@ -879,50 +927,46 @@
     
     <div class="gallery-grid">
         <div class="gallery-item">
-            <img src="photo1.jpg" alt="Wedding Photo 1">
+            <div class="gallery-placeholder">
+                📷
+                <p>Photo 1</p>
+            </div>
             <!-- Replace with: <img src="your-photo-1.jpg" alt="When we first met"> -->
             <div class="photo-caption">
                 <div class="photo-year">2020</div>
                 <p class="photo-description">When We First Met</p>
             </div>
         </div>
-
+        
         <div class="gallery-item">
-            <img src="photo2.jpg" alt="Wedding Photo 2">
+            <div class="gallery-placeholder">
+                📷
+                <p>Photo 2</p>
+            </div>
             <!-- Replace with: <img src="your-photo-2.jpg" alt="Our first date"> -->
             <div class="photo-caption">
                 <div class="photo-year">2021</div>
                 <p class="photo-description">Our First Date</p>
             </div>
         </div>
-
+        
         <div class="gallery-item">
-            <img src="photo3.jpg" alt="Wedding Photo 1">
+            <div class="gallery-placeholder">
+                📷
+                <p>Photo 3</p>
+            </div>
             <!-- Replace with: <img src="your-photo-3.jpg" alt="The proposal"> -->
             <div class="photo-caption">
                 <div class="photo-year">2024</div>
                 <p class="photo-description">The Proposal</p>
             </div>
         </div>
-
+        
         <div class="gallery-item">
-            <img src="photo4.jpg" alt="Wedding Photo 1">
-            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
-            <div class="photo-caption">
-                <div class="photo-year">2025</div>
-                <p class="photo-description">Engagement Celebration</p>
+            <div class="gallery-placeholder">
+                📷
+                <p>Photo 4</p>
             </div>
-        </div>
-        <div class="gallery-item">
-            <img src="photo5.jpg" alt="Wedding Photo 1">
-            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
-            <div class="photo-caption">
-                <div class="photo-year">2025</div>
-                <p class="photo-description">Engagement Celebration</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="photo6.jpg" alt="Wedding Photo 1">
             <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
             <div class="photo-caption">
                 <div class="photo-year">2025</div>
@@ -967,7 +1011,7 @@
     <p>We look forward to celebrating with you</p>
     <p class="heart">❤</p>
     <p>Kong Kim Meng & Ros Sreymean</p>
-    <p style="margin-top: 20px; font-size: 16px;">គង់ គីមម៉េង & រស់ ស្រីមាន</p>
+    <p style="margin-top: 20px; font-size: 16px;">គុង គីមមេង & រស់ ស្រីមាន</p>
 </footer>
 
 <script>
@@ -986,37 +1030,45 @@
     const pauseIcon = document.querySelector('.pause-icon');
     
     let isPlaying = false;
+    let audioInitialized = false;
     
-    // Try to auto-play on page load
-    window.addEventListener('load', function() {
+    // Function to initialize and play audio
+    function initAndPlayAudio() {
+        if (!audioInitialized) {
+            // Load the audio first
+            weddingMusic.load();
+            audioInitialized = true;
+        }
+        
         weddingMusic.play().then(function() {
-            // Auto-play successful
             playIcon.style.display = 'none';
             pauseIcon.style.display = 'inline';
             musicToggle.classList.add('playing');
             isPlaying = true;
         }).catch(function(error) {
-            // Auto-play blocked by browser - will play on first user interaction
-            console.log('Auto-play blocked, waiting for user interaction');
+            console.log('Audio playback failed:', error);
         });
+    }
+    
+    // Try to auto-play on page load (works on desktop)
+    window.addEventListener('load', function() {
+        initAndPlayAudio();
     });
     
     // Manual toggle control
-    musicToggle.addEventListener('click', function() {
+    musicToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
         if (isPlaying) {
             weddingMusic.pause();
             playIcon.style.display = 'inline';
             pauseIcon.style.display = 'none';
             musicToggle.classList.remove('playing');
+            isPlaying = false;
         } else {
-            weddingMusic.play().catch(function(error) {
-                console.log('Audio playback failed:', error);
-            });
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'inline';
-            musicToggle.classList.add('playing');
+            initAndPlayAudio();
         }
-        isPlaying = !isPlaying;
     });
     
     // Handle audio events
@@ -1034,16 +1086,42 @@
         isPlaying = false;
     });
     
-    // Fallback: Try to play on first user interaction if auto-play failed
-    let hasInteracted = false;
-    document.addEventListener('click', function() {
-        if (!hasInteracted && !isPlaying) {
-            weddingMusic.play().catch(function(error) {
-                // User will need to click the play button manually
-            });
-            hasInteracted = true;
+    // For mobile: Start playing on ANY user interaction
+    let userInteracted = false;
+    
+    function startAudioOnInteraction() {
+        if (!userInteracted && !isPlaying) {
+            userInteracted = true;
+            initAndPlayAudio();
+        }
+    }
+    
+    // Listen for various user interactions (especially important for iOS)
+    document.addEventListener('touchstart', startAudioOnInteraction, { once: true });
+    document.addEventListener('click', startAudioOnInteraction, { once: true });
+    
+    // Also try when scrolling starts
+    let scrollAttempted = false;
+    window.addEventListener('scroll', function() {
+        if (!scrollAttempted && !isPlaying) {
+            scrollAttempted = true;
+            initAndPlayAudio();
         }
     }, { once: true });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 </script>
 
 </body>
