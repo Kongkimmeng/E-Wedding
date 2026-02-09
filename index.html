@@ -35,7 +35,10 @@
 
     /* INVITATION STYLE SCROLL (iPhone friendly) */
     .invitation {
+        height: 100vh;
+        overflow-y: auto;
         scroll-snap-type: y mandatory;
+        -webkit-overflow-scrolling: touch;
     }
 
         .invitation section {
@@ -1149,7 +1152,7 @@
                     <!-- Replace with: <img src="your-photo-2.jpg" alt="Our first date"> -->
                     <div class="photo-caption">
                         <div class="photo-year">2021</div>
-                        <p class="photo-description">Our First Date</p>
+                        <p class="photo-description">Our Date</p>
                     </div>
                 </div>
 
@@ -1204,7 +1207,7 @@
                     <p class="parent-name">Mrs. Hak Srouy</p>
                     <p style="margin-top: 15px; color: #546e7a;">
                         លោក តាំង មុយគង់<br>
-                        អ្នកស្រី ហាក់ ស្រួយ
+                        អ្នកស្រី ហាក់ ស្រូយ
                     </p>
                 </div>
 
@@ -1226,7 +1229,7 @@
             <p>We look forward to celebrating with you</p>
             <p class="heart">❤</p>
             <p>Kong Kim Meng & Ros Sreymean</p>
-            <p style="margin-top: 20px; font-size: 16px;">គុង គីមមេង & រស់ ស្រីមាន</p>
+            <p style="margin-top: 20px; font-size: 16px;">គង់ គីមម៉េង & រស់ ស្រីមាន</p>
         </footer>
 
         <script>
@@ -1285,10 +1288,21 @@
 
                 // Smooth "page turn" into first section
                 setTimeout(() => {
-                    document.querySelector('.hero').scrollIntoView({
+                    const hero = document.querySelector('.hero');
+
+                    hero.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
+
+                    // Gentle hint: scroll a little more
+                    setTimeout(() => {
+                        document.querySelector('.invitation').scrollBy({
+                            top: 90,
+                            behavior: 'smooth'
+                        });
+                    }, 600);
+
                 }, 300);
             });
 
