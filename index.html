@@ -13,6 +13,11 @@
         -webkit-tap-highlight-color: transparent;
     }
     
+    html.no-scroll {
+        overflow: hidden;
+        height: 100vh;
+    }
+    
     body { 
         font-family: 'Montserrat', sans-serif; 
         color: #2c3e50;
@@ -21,6 +26,139 @@
         background: linear-gradient(135deg, #e3f2fd 0%, #fff9e6 100%);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body.no-scroll {
+        overflow: hidden;
+        height: 100vh;
+    }
+    
+    /* SPLASH SCREEN */
+    .splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(135deg, #4fc3f7 0%, #81d4fa 50%, #b3e5fc 100%);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .splash-screen.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    
+    .splash-screen::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+        animation: rotate 30s linear infinite;
+    }
+    
+    .splash-screen::after {
+        content: '';
+        position: absolute;
+        bottom: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+        animation: rotate 40s linear infinite reverse;
+    }
+    
+    .splash-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 900px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 60px 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,215,0,0.3);
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .splash-greeting {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 42px;
+        font-weight: 600;
+        color: #FFD700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        animation: fadeIn 1s ease-out both;
+        letter-spacing: 1px;
+    }
+    
+    .splash-subtitle {
+        font-size: 16px;
+        color: #546e7a;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+    }
+    
+    .splash-name {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 56px;
+        color: #0277bd;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
+        animation: fadeIn 1.2s ease-out 0.3s both;
+    }
+    
+    .splash-ampersand {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 64px;
+        color: #FFD700;
+        margin: 20px 0;
+        display: block;
+        animation: fadeIn 1.2s ease-out 0.6s both;
+    }
+    
+    .splash-tagline {
+        font-size: 18px;
+        color: #546e7a;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-top: 20px;
+        animation: fadeIn 1.2s ease-out 0.9s both;
+    }
+    
+    .open-wedding-btn {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 18px 50px;
+        background: linear-gradient(135deg, #FFD700, #FFA000);
+        color: #0277bd;
+        border: none;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 50px;
+        box-shadow: 0 8px 20px rgba(255,215,0,0.4);
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        animation: fadeIn 1.2s ease-out 1.2s both, pulse 2s ease-in-out 2s infinite;
+    }
+    
+    .open-wedding-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(255,215,0,0.6);
+        background: linear-gradient(135deg, #FFA000, #FFD700);
+    }
+    
+    .open-wedding-btn:active {
+        transform: translateY(-1px);
     }
     
     h1, h2, h3 { 
@@ -538,7 +676,7 @@
         overflow: hidden;
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        aspect-ratio: 4/3;
+        aspect-ratio: 2/3;
         background: linear-gradient(135deg, #e3f2fd 0%, #fff9e6 100%);
         border: 3px solid #FFD700;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -645,6 +783,17 @@
     
     /* RESPONSIVE */
     @media (max-width: 768px) {
+        .splash-content { padding: 40px 25px; }
+        .splash-greeting { font-size: 32px; }
+        .splash-name { font-size: 36px; }
+        .splash-ampersand { font-size: 48px; }
+        .splash-tagline { font-size: 14px; }
+        .open-wedding-btn { 
+            font-size: 18px; 
+            padding: 15px 40px;
+            margin-top: 30px;
+        }
+        
         .hero h1 { font-size: 36px; }
         .hero .ampersand { font-size: 48px; }
         .hero .tagline { font-size: 14px; }
@@ -687,6 +836,18 @@
     }
     
     @media (max-width: 480px) {
+        .splash-content { padding: 30px 20px; }
+        .splash-greeting { font-size: 26px; }
+        .splash-name { font-size: 28px; }
+        .splash-ampersand { font-size: 40px; }
+        .splash-subtitle { font-size: 13px; }
+        .splash-tagline { font-size: 12px; }
+        .open-wedding-btn { 
+            font-size: 16px; 
+            padding: 14px 35px;
+            margin-top: 25px;
+        }
+        
         .hero h1 { font-size: 28px; }
         .hero .ampersand { font-size: 40px; }
         .guest-greeting { font-size: 26px; }
@@ -728,6 +889,21 @@
 </head>
 <body>
 
+<!-- SPLASH SCREEN OVERLAY -->
+<div id="splashScreen" class="splash-screen">
+    <div class="splash-content">
+        <p class="splash-greeting" id="splashGuestName">Dear Guest</p>
+        <div class="ornament"></div>
+        <p class="splash-subtitle">YOU ARE INVITED TO THE WEDDING OF</p>
+        <h1 class="splash-name">Kong Kim Meng</h1>
+        <span class="splash-ampersand">&</span>
+        <h1 class="splash-name">Ros Sreymean</h1>
+        <div class="ornament"></div>
+        <p class="splash-tagline">Cordially Invite You</p>
+        <button id="openWeddingBtn" class="open-wedding-btn">Open Wedding Invitation</button>
+    </div>
+</div>
+
 <!-- HERO SECTION -->
 <section class="hero">
     <div class="hero-content">
@@ -754,8 +930,8 @@
     </div>
     
     <!-- Hidden Audio Element -->
-    <audio id="weddingMusic" loop preload="auto" autoplay>
-        <source src="wedding-music.mp3" type="audio/mpeg">
+    <audio id="weddingMusic" loop preload="auto">
+        <source src="mylove.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </section>
@@ -927,10 +1103,7 @@
     
     <div class="gallery-grid">
         <div class="gallery-item">
-            <div class="gallery-placeholder">
-                📷
-                <p>Photo 1</p>
-            </div>
+           <img src="photo1.jpg" alt="Wedding Photo 1">
             <!-- Replace with: <img src="your-photo-1.jpg" alt="When we first met"> -->
             <div class="photo-caption">
                 <div class="photo-year">2020</div>
@@ -939,10 +1112,7 @@
         </div>
         
         <div class="gallery-item">
-            <div class="gallery-placeholder">
-                📷
-                <p>Photo 2</p>
-            </div>
+           <img src="photo2.jpg" alt="Wedding Photo 1">
             <!-- Replace with: <img src="your-photo-2.jpg" alt="Our first date"> -->
             <div class="photo-caption">
                 <div class="photo-year">2021</div>
@@ -951,10 +1121,8 @@
         </div>
         
         <div class="gallery-item">
-            <div class="gallery-placeholder">
-                📷
-                <p>Photo 3</p>
-            </div>
+           <img src="photo3.jpg" alt="Wedding Photo 1">
+
             <!-- Replace with: <img src="your-photo-3.jpg" alt="The proposal"> -->
             <div class="photo-caption">
                 <div class="photo-year">2024</div>
@@ -963,16 +1131,30 @@
         </div>
         
         <div class="gallery-item">
-            <div class="gallery-placeholder">
-                📷
-                <p>Photo 4</p>
-            </div>
+           <img src="photo4.jpg" alt="Wedding Photo 1">
             <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
             <div class="photo-caption">
                 <div class="photo-year">2025</div>
                 <p class="photo-description">Engagement Celebration</p>
             </div>
         </div>
+ <div class="gallery-item">
+           <img src="photo5.jpg" alt="Wedding Photo 1">
+            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
+            <div class="photo-caption">
+                <div class="photo-year">2025</div>
+                <p class="photo-description">Engagement Celebration</p>
+            </div>
+        </div>
+ <div class="gallery-item">
+           <img src="photo6.jpg" alt="Wedding Photo 1">
+            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
+            <div class="photo-caption">
+                <div class="photo-year">2025</div>
+                <p class="photo-description">Engagement Celebration</p>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -1015,12 +1197,17 @@
 </footer>
 
 <script>
+    // Prevent scrolling initially
+    document.documentElement.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');
+    
     // Get guest name from query string
     const urlParams = new URLSearchParams(window.location.search);
     const guestName = urlParams.get('name');
     
     if (guestName) {
         document.getElementById('guestName').textContent = `Dear ${guestName}`;
+        document.getElementById('splashGuestName').textContent = `Dear ${guestName}`;
     }
     
     // Music player functionality
@@ -1028,6 +1215,8 @@
     const weddingMusic = document.getElementById('weddingMusic');
     const playIcon = document.querySelector('.play-icon');
     const pauseIcon = document.querySelector('.pause-icon');
+    const splashScreen = document.getElementById('splashScreen');
+    const openWeddingBtn = document.getElementById('openWeddingBtn');
     
     let isPlaying = false;
     let audioInitialized = false;
@@ -1035,7 +1224,6 @@
     // Function to initialize and play audio
     function initAndPlayAudio() {
         if (!audioInitialized) {
-            // Load the audio first
             weddingMusic.load();
             audioInitialized = true;
         }
@@ -1050,9 +1238,20 @@
         });
     }
     
-    // Try to auto-play on page load (works on desktop)
-    window.addEventListener('load', function() {
+    // Open Wedding Button Click Handler
+    openWeddingBtn.addEventListener('click', function() {
+        // Hide splash screen
+        splashScreen.classList.add('hidden');
+        
+        // Enable scrolling
+        document.documentElement.classList.remove('no-scroll');
+        document.body.classList.remove('no-scroll');
+        
+        // Start music
         initAndPlayAudio();
+        
+        // Scroll to top smoothly (in case user scrolled on splash)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
     // Manual toggle control
@@ -1085,29 +1284,6 @@
         musicToggle.classList.remove('playing');
         isPlaying = false;
     });
-    
-    // For mobile: Start playing on ANY user interaction
-    let userInteracted = false;
-    
-    function startAudioOnInteraction() {
-        if (!userInteracted && !isPlaying) {
-            userInteracted = true;
-            initAndPlayAudio();
-        }
-    }
-    
-    // Listen for various user interactions (especially important for iOS)
-    document.addEventListener('touchstart', startAudioOnInteraction, { once: true });
-    document.addEventListener('click', startAudioOnInteraction, { once: true });
-    
-    // Also try when scrolling starts
-    let scrollAttempted = false;
-    window.addEventListener('scroll', function() {
-        if (!scrollAttempted && !isPlaying) {
-            scrollAttempted = true;
-            initAndPlayAudio();
-        }
-    }, { once: true });
     
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
