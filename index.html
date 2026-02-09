@@ -3,116 +3,1047 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Celebration</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-
+<title>Kong Kim Meng & Ros Sreymean Wedding</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-    * { box-sizing: border-box; margin:0; padding:0; }
-    body { font-family: 'Poppins', sans-serif; color:#444; line-height:1.6; }
-    h1,h2,h3 { font-family: 'Playfair Display', serif; color:#7a4a3b; }
-    section { padding:60px 20px; text-align:center; }
-    .divider { width:60px; height:2px; background:#cfa18d; margin:20px auto; }
-
-    /* HERO */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html {
+        scroll-behavior: smooth;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body { 
+        font-family: 'Montserrat', sans-serif; 
+        color: #2c3e50;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background: linear-gradient(135deg, #e3f2fd 0%, #fff9e6 100%);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    h1, h2, h3 { 
+        font-family: 'Cormorant Garamond', serif; 
+        font-weight: 600;
+    }
+    
+    /* HERO SECTION */
     .hero {
-        height: 80vh;
-        background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
-                    url("5da3a1a8-7442-4bc5-8e2a-61ae199bc00b.jpg") center/cover no-repeat;
-        color: #fff;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0 20px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #4fc3f7 0%, #81d4fa 50%, #b3e5fc 100%);
+        padding: 40px 20px;
     }
-    .hero h1 { font-size: 45px; margin-bottom: 10px; }
-    .hero p { font-size: 18px; letter-spacing:1.5px; }
-
-    /* STORY */
-    .story p { max-width:600px; margin:auto; line-height:1.8; font-size:16px; }
-
-    /* EVENTS */
-    .events { background:#f8f3f0; }
-    .event-box { max-width:300px; margin:20px auto; background:#fff; padding:25px; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,.05); }
-
-    /* GALLERY */
-    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; padding:0 10px; }
-    .gallery img { width:100%; border-radius:10px; display:block; }
-
-    /* RSVP */
-    .rsvp form { max-width:350px; margin:auto; display:flex; flex-direction:column; }
-    input, button { width:100%; padding:12px; margin:8px 0; border-radius:5px; border:1px solid #ddd; font-size:16px; }
-    button { background:#7a4a3b; color:#fff; border:none; cursor:pointer; transition:0.3s; }
-    button:hover { background:#5f382d; }
-
-    footer { background:#7a4a3b; color:#fff; padding:20px; text-align:center; font-size:16px; }
-
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+        animation: rotate 30s linear infinite;
+    }
+    
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+        animation: rotate 40s linear infinite reverse;
+    }
+    
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 900px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 60px 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,215,0,0.3);
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .ornament {
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        margin: 20px auto;
+        position: relative;
+    }
+    
+    .ornament::before,
+    .ornament::after {
+        content: '❖';
+        position: absolute;
+        color: #FFD700;
+        font-size: 20px;
+        top: -8px;
+    }
+    
+    .ornament::before { left: -25px; }
+    .ornament::after { right: -25px; }
+    
+    .hero h1 {
+        font-size: 56px;
+        color: #0277bd;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
+        animation: fadeIn 1.2s ease-out 0.3s both;
+    }
+    
+    .hero .ampersand {
+        font-size: 64px;
+        color: #FFD700;
+        margin: 20px 0;
+        display: block;
+        animation: fadeIn 1.2s ease-out 0.6s both;
+    }
+    
+    .hero .tagline {
+        font-size: 18px;
+        color: #546e7a;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-top: 20px;
+        animation: fadeIn 1.2s ease-out 0.9s both;
+    }
+    
+    .guest-greeting {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 42px;
+        font-weight: 600;
+        color: #FFD700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        animation: fadeIn 1s ease-out both;
+        letter-spacing: 1px;
+    }
+    
+    /* MUSIC PLAYER */
+    .music-player {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 15px 20px;
+        border-radius: 50px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        border: 2px solid #FFD700;
+        animation: slideInRight 0.8s ease-out 1.5s both;
+    }
+    
+    @keyframes slideInRight {
+        from { 
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        to { 
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .music-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #0277bd, #01579b);
+        border: none;
+        color: #FFD700;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(2,119,189,0.3);
+    }
+    
+    .music-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(2,119,189,0.5);
+    }
+    
+    .music-btn:active {
+        transform: scale(0.95);
+    }
+    
+    .music-btn.playing {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 4px 15px rgba(2,119,189,0.3); }
+        50% { box-shadow: 0 4px 25px rgba(255,215,0,0.6); }
+    }
+    
+    .music-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .music-text {
+        font-size: 14px;
+        color: #0277bd;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    /* DATE SECTION */
+    .date-section {
+        background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+        padding: 80px 20px;
+        text-align: center;
+        position: relative;
+    }
+    
+    .date-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(255,215,0,0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 50%, rgba(79,195,247,0.1) 0%, transparent 50%);
+        pointer-events: none;
+    }
+    
+    .date-box {
+        background: white;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 50px 40px;
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        border: 2px solid #FFD700;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .date-box h2 {
+        font-size: 42px;
+        color: #0277bd;
+        margin-bottom: 25px;
+    }
+    
+    .date-info {
+        font-size: 20px;
+        color: #546e7a;
+        line-height: 2;
+    }
+    
+    .date-highlight {
+        font-size: 28px;
+        color: #FFD700;
+        font-weight: 500;
+        margin: 15px 0;
+    }
+    
+    /* EVENTS TIMELINE */
+    .timeline-section {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #4fc3f7 0%, #81d4fa 100%);
+        position: relative;
+    }
+    
+    .timeline-section h2 {
+        text-align: center;
+        font-size: 48px;
+        color: white;
+        margin-bottom: 60px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .timeline-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .timeline-day {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-left: 5px solid #FFD700;
+    }
+    
+    .timeline-day h3 {
+        font-size: 32px;
+        color: #0277bd;
+        margin-bottom: 10px;
+    }
+    
+    .timeline-day .day-date {
+        font-size: 18px;
+        color: #FFD700;
+        font-weight: 500;
+        margin-bottom: 30px;
+    }
+    
+    .event-item {
+        padding: 20px 0;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .event-item:last-child {
+        border-bottom: none;
+    }
+    
+    .event-time {
+        min-width: 120px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #0277bd;
+        background: #e3f2fd;
+        padding: 8px 15px;
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    .event-details {
+        flex: 1;
+    }
+    
+    .event-details h4 {
+        font-size: 20px;
+        color: #2c3e50;
+        margin-bottom: 5px;
+    }
+    
+    .event-details p {
+        font-size: 15px;
+        color: #546e7a;
+    }
+    
+    /* LOCATION SECTION */
+    .location-section {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+        text-align: center;
+    }
+    
+    .location-section h2 {
+        font-size: 48px;
+        color: #0277bd;
+        margin-bottom: 40px;
+    }
+    
+    .location-box {
+        max-width: 700px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        border: 2px solid #FFD700;
+    }
+    
+    .location-box p {
+        font-size: 20px;
+        color: #546e7a;
+        line-height: 1.8;
+        margin: 10px 0;
+    }
+    
+    .contact-info {
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 2px solid #e3f2fd;
+    }
+    
+    .contact-info h3 {
+        font-size: 24px;
+        color: #0277bd;
+        margin-bottom: 15px;
+    }
+    
+    .phone-numbers {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .phone-numbers a {
+        color: #FFD700;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    
+    .phone-numbers a:hover {
+        color: #0277bd;
+    }
+    
+    /* PARENTS SECTION */
+    .parents-section {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #4fc3f7 0%, #81d4fa 100%);
+        text-align: center;
+    }
+    
+    .parents-section h2 {
+        font-size: 48px;
+        color: white;
+        margin-bottom: 60px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .parents-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .parent-card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        border-top: 4px solid #FFD700;
+    }
+    
+    .parent-card h3 {
+        font-size: 28px;
+        color: #0277bd;
+        margin-bottom: 25px;
+    }
+    
+    .parent-card .parent-name {
+        font-size: 20px;
+        color: #2c3e50;
+        margin: 10px 0;
+        font-weight: 500;
+    }
+    
+    /* FOOTER */
+    footer {
+        background: linear-gradient(135deg, #0277bd 0%, #01579b 100%);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    footer p {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+    
+    .heart {
+        color: #FFD700;
+        font-size: 24px;
+        animation: heartbeat 1.5s infinite;
+    }
+    
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+    
+    /* PHOTO GALLERY */
+    .gallery-section {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+        text-align: center;
+    }
+    
+    .gallery-section h2 {
+        font-size: 48px;
+        color: #0277bd;
+        margin-bottom: 20px;
+    }
+    
+    .gallery-section p {
+        font-size: 18px;
+        color: #546e7a;
+        margin-bottom: 50px;
+    }
+    
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        aspect-ratio: 2/3;
+        background: linear-gradient(135deg, #e3f2fd 0%, #fff9e6 100%);
+        border: 3px solid #FFD700;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    /* Hover effects only on desktop */
+    @media (hover: hover) and (pointer: fine) {
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+    }
+    
+    /* Touch-friendly on mobile - no transform on tap */
+    @media (hover: none) or (pointer: coarse) {
+        .gallery-item:active {
+            transform: scale(0.98);
+        }
+    }
+    
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: #0277bd;
+        font-size: 48px;
+    }
+    
+    .gallery-placeholder p {
+        font-size: 16px;
+        color: #546e7a;
+        margin-top: 15px;
+    }
+    
+    .photo-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(2,119,189,0.95), rgba(2,119,189,0.85));
+        padding: 20px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    
+    /* On desktop: show caption on hover */
+    @media (hover: hover) and (pointer: fine) {
+        .gallery-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+    }
+    
+    /* On mobile/touch devices: always show caption */
+    @media (hover: none) or (pointer: coarse) {
+        .photo-caption {
+            transform: translateY(0);
+            background: linear-gradient(to top, rgba(2,119,189,0.98), rgba(2,119,189,0.92));
+        }
+        
+        .gallery-item {
+            aspect-ratio: 3/4;
+        }
+    }
+    
+    .photo-year {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 36px;
+        font-weight: 600;
+        color: #FFD700;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .photo-description {
+        font-size: 16px;
+        color: white;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+    
     /* RESPONSIVE */
-    @media (max-width:768px){ .hero h1{font-size:35px;} .hero p{font-size:16px;} section{padding:50px 15px;} }
-    @media (max-width:480px){ .hero h1{font-size:28px;} .hero p{font-size:14px;} .story p{font-size:15px;} .event-box{padding:20px;} input,button{font-size:15px;} }
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 36px; }
+        .hero .ampersand { font-size: 48px; }
+        .hero .tagline { font-size: 14px; }
+        .hero-content { padding: 40px 25px; }
+        .guest-greeting { font-size: 32px; }
+        .date-box h2 { font-size: 32px; }
+        .date-info { font-size: 18px; }
+        .timeline-section h2, .location-section h2, .parents-section h2, .gallery-section h2 { font-size: 36px; }
+        .timeline-day { padding: 25px; }
+        .event-item { flex-direction: column; gap: 10px; }
+        .event-time { min-width: auto; }
+        .parents-container { grid-template-columns: 1fr; }
+        .gallery-grid { 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+        }
+        .photo-year { font-size: 32px; }
+        .photo-description { font-size: 15px; }
+        
+        .music-player {
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 18px;
+        }
+        
+        .music-btn {
+            width: 45px;
+            height: 45px;
+            font-size: 18px;
+        }
+        
+        .music-text {
+            font-size: 13px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .hero h1 { font-size: 28px; }
+        .hero .ampersand { font-size: 40px; }
+        .guest-greeting { font-size: 26px; }
+        .date-highlight { font-size: 24px; }
+        .timeline-day h3 { font-size: 26px; }
+        .event-time { font-size: 16px; }
+        .event-details h4 { font-size: 18px; }
+        .gallery-grid { 
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .photo-year { font-size: 28px; }
+        .photo-description { font-size: 14px; }
+        .photo-caption { padding: 15px; }
+        
+        .music-player {
+            bottom: 15px;
+            right: 15px;
+            padding: 10px 15px;
+            gap: 12px;
+        }
+        
+        .music-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+        }
+        
+        .music-info {
+            display: none;
+        }
+    }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 <section class="hero">
-    <h1 id="guestName">Dear Guest</h1>
-    <div class="divider"></div>
-    <p>Welcome to our Wedding Celebration</p>
-    <p>February 28, 2026</p>
+    <div class="hero-content">
+        <p id="guestName" class="guest-greeting">Dear Guest</p>
+        <div class="ornament"></div>
+        <p style="font-size: 16px; color: #546e7a; margin-bottom: 25px; letter-spacing: 2px;">YOU ARE INVITED TO THE WEDDING OF</p>
+        <h1>Kong Kim Meng</h1>
+        <span class="ampersand">&</span>
+        <h1>Ros Sreymean</h1>
+        <div class="ornament"></div>
+        <p class="tagline">Cordially Invite You</p>
+    </div>
+    
+    <!-- Floating Music Player -->
+    <div class="music-player">
+        <button id="musicToggle" class="music-btn" aria-label="Play music">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" style="display: none;">⏸</span>
+        </button>
+        <div class="music-info">
+            <span class="music-text">Wedding Music</span>
+        </div>
+    </div>
+    
+    <!-- Hidden Audio Element -->
+    <audio id="weddingMusic" loop preload="auto" autoplay>
+        <source src="mylove.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </section>
 
-<!-- STORY -->
-<section class="story">
+<!-- DATE ANNOUNCEMENT -->
+<section class="date-section">
+    <div class="date-box">
+        <h2>Save The Date</h2>
+        <div class="ornament"></div>
+        <div class="date-info">
+            <p>We joyfully invite you to celebrate our union</p>
+            <p class="date-highlight">Sunday, March 1st, 2026</p>
+            <p>at 4:30 PM</p>
+            <p style="margin-top: 20px; font-style: italic;">
+                ពិធីរៀបការពិវាហ៍<br>
+                ថ្ងៃទី០១ ខែមីនា ឆ្នាំ២០២៦ ម៉ោង ៤:៣០ ល្ងាច
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- TIMELINE - DAY 1 -->
+<section class="timeline-section">
+    <h2>Wedding Ceremonies</h2>
+    
+    <div class="timeline-container">
+        <!-- Day 1: February 28, 2026 -->
+        <div class="timeline-day">
+            <h3>Day 1 - Pre-Wedding Ceremonies</h3>
+            <p class="day-date">Friday, February 28, 2026 | ថ្ងៃសុក្រ ទី២៨ ខែកុម្ភៈ ឆ្នាំ២០២៦</p>
+            
+            <div class="event-item">
+                <div class="event-time">06:30 AM</div>
+                <div class="event-details">
+                    <h4>Gathering of Guests</h4>
+                    <p>ជួបជុំភ្ញៀវកិត្តិយសដើម្បីរៀបចំហែរជំនូន</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">07:00 AM</div>
+                <div class="event-details">
+                    <h4>Procession Ceremony</h4>
+                    <p>ពិធីហែរជំនូនកំណត់ចូលមង្គលជ័យ</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">07:30 AM</div>
+                <div class="event-details">
+                    <h4>Traditional Welcoming Ritual</h4>
+                    <p>ពិធីម៉េនិយជើងរាំ ហែរព្រាន រៀបបាយផ្កាឈើនិងពិជេរពេលព្រឹក</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">08:00 AM</div>
+                <div class="event-details">
+                    <h4>Groom's Grooming Ceremony</h4>
+                    <p>ពិធីបំពាក់ជីនេ</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">09:00 AM</div>
+                <div class="event-details">
+                    <h4>Hair Cutting Ceremony</h4>
+                    <p>ពិធីកាត់សក់បង្កាន់ស្លា កូនប្រុស-កូនស្រី</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">11:00 AM</div>
+                <div class="event-details">
+                    <h4>Sacred Offering Ceremony</h4>
+                    <p>ពិធីសំពះផឹមចង្ហាន់ដ័ង បូជាភ្លើង ពល្លិល និងព្រះទ្វាងទ្វែងថ្ងៃ</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">12:00 PM</div>
+                <div class="event-details">
+                    <h4>Luncheon Reception</h4>
+                    <p>អញ្ជើញភ្ញៀវកិត្តិយសពិសារថ្ងៃត្រង់ បញ្ចប់កិច្ចការពិវាហ៍</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">05:00 PM</div>
+                <div class="event-details">
+                    <h4>Evening Celebration</h4>
+                    <p>អញ្ជើញភ្ញៀវកិត្តិយសពិជេរ ថ្វាយគ្រឿងទេសបងស្អី សូមអរគុណ!</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Day 2: March 1, 2026 -->
+        <div class="timeline-day">
+            <h3>Day 2 - Wedding Day</h3>
+            <p class="day-date">Sunday, March 1, 2026 | ថ្ងៃទិត្យ ទី០១ ខែមីនា ឆ្នាំ២០២៦</p>
+            
+            <div class="event-item">
+                <div class="event-time">03:00 PM</div>
+                <div class="event-details">
+                    <h4>Kong Lea Ceremony</h4>
+                    <p>ពិធីហែរកុងលី</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">04:00 PM</div>
+                <div class="event-details">
+                    <h4>Blessing Ceremony</h4>
+                    <p>ពិធីសូត្រមន្តជម្រើនព្រះបរ</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">05:00 PM</div>
+                <div class="event-details">
+                    <h4>Knot Tying & Prayer Ceremony</h4>
+                    <p>ពិធីជុំព្រ័ន្ឋ និងវន្ទា</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div class="event-time">06:30 PM</div>
+                <div class="event-details">
+                    <h4>Grand Reception Dinner</h4>
+                    <p>អញ្ជើញភ្ញៀវកិត្តិយសពិសារពេលល្ងាច</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location-section">
+    <h2>Venue</h2>
+    <div class="ornament"></div>
+    
+    <div class="location-box">
+        <p><strong>Sam Village, Khseth Commune</strong></p>
+        <p>Kampong Ror District</p>
+        <p>Svay Rieng Province</p>
+        <p style="margin-top: 20px; color: #0277bd; font-style: italic;">
+            ភូមិសាំម៉ៃ ឃុំខ្សែត្រ ស្រុកកំពង់រោទ៍<br>
+            ខេត្តស្វាយរៀង
+        </p>
+        
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="ornament"></div>
+            <p>សំរាប់ទីតាំងកម្មវិធី</p>
+            <div class="phone-numbers">
+                <a href="tel:087474944">📞 087 474 944</a>
+                <a href="tel:0968640409">📞 096 86 40409</a>
+                <a href="tel:0884482880">📞 088 448 2880</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="gallery-section">
     <h2>Our Love Story</h2>
-    <div class="divider"></div>
-    <p>
-        From the moment we met, our journey together has been filled with love,
-        laughter, and unforgettable memories. We are so excited to celebrate
-        our special day with the people we love most.
-    </p>
+    <div class="ornament"></div>
+    <p>Our journey from the day we met to forever</p>
+    
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="photo1.jpg" alt="Wedding Photo 1">
+            <!-- Replace with: <img src="your-photo-1.jpg" alt="When we first met"> -->
+            <div class="photo-caption">
+                <div class="photo-year">2020</div>
+                <p class="photo-description">When We First Met</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="photo2.jpg" alt="Wedding Photo 2">
+            <!-- Replace with: <img src="your-photo-2.jpg" alt="Our first date"> -->
+            <div class="photo-caption">
+                <div class="photo-year">2021</div>
+                <p class="photo-description">Our First Date</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="photo3.jpg" alt="Wedding Photo 1">
+            <!-- Replace with: <img src="your-photo-3.jpg" alt="The proposal"> -->
+            <div class="photo-caption">
+                <div class="photo-year">2024</div>
+                <p class="photo-description">The Proposal</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="photo4.jpg" alt="Wedding Photo 1">
+            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
+            <div class="photo-caption">
+                <div class="photo-year">2025</div>
+                <p class="photo-description">Engagement Celebration</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="photo5.jpg" alt="Wedding Photo 1">
+            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
+            <div class="photo-caption">
+                <div class="photo-year">2025</div>
+                <p class="photo-description">Engagement Celebration</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="photo6.jpg" alt="Wedding Photo 1">
+            <!-- Replace with: <img src="your-photo-4.jpg" alt="Engagement celebration"> -->
+            <div class="photo-caption">
+                <div class="photo-year">2025</div>
+                <p class="photo-description">Engagement Celebration</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- EVENTS -->
-<section class="events">
-    <h2>Wedding Events</h2>
-    <div class="divider"></div>
-
-    <div class="event-box">
-        <h3>Ceremony</h3>
-        <p>10:00 AM</p>
-        <p>___place___</p>
-    </div>
-
-    <div class="event-box">
-        <h3>Reception</h3>
-        <p>6:00 PM</p>
-        <p>Golden Rose Ballroom</p>
+<!-- PARENTS -->
+<section class="parents-section">
+    <h2>Our Beloved Parents</h2>
+    <div class="ornament"></div>
+    
+    <div class="parents-container">
+        <div class="parent-card">
+            <h3>Groom's Parents</h3>
+            <div class="ornament"></div>
+            <p class="parent-name">Mr. Taing Muykong</p>
+            <p class="parent-name">Mrs. Hak Srouy</p>
+            <p style="margin-top: 15px; color: #546e7a;">
+                លោក តាំង មុយគង់<br>
+                អ្នកស្រី ហាក់ ស្រួយ
+            </p>
+        </div>
+        
+        <div class="parent-card">
+            <h3>Bride's Parents</h3>
+            <div class="ornament"></div>
+            <p class="parent-name">Mr. Dam Sona</p>
+            <p class="parent-name">Mrs. Chhim Saly</p>
+            <p style="margin-top: 15px; color: #546e7a;">
+                លោក ដាំ សូណា<br>
+                អ្នកស្រី ឈឹម សាលី
+            </p>
+        </div>
     </div>
 </section>
 
-<!-- GALLERY -->
-<section>
-    <h2>Our Moments</h2>
-    <div class="divider"></div>
-
-    <div class="gallery">
-        <img src="2.jpg">
-        <img src="1.jpg">
-    </div>
-</section>
+<!-- FOOTER -->
 <footer>
-    <p>With Love, Kimmeng & Sreymean ❤️</p>
+    <p>We look forward to celebrating with you</p>
+    <p class="heart">❤</p>
+    <p>Kong Kim Meng & Ros Sreymean</p>
+    <p style="margin-top: 20px; font-size: 16px;">គង់ គីមម៉េង & រស់ ស្រីមាន</p>
 </footer>
 
 <script>
-    // Get query string name
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get('name');
-    if(name){
-        document.getElementById('guestName').textContent = `Dear ${name}`;
+    // Get guest name from query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get('name');
+    
+    if (guestName) {
+        document.getElementById('guestName').textContent = `Dear ${guestName}`;
     }
+    
+    // Music player functionality
+    const musicToggle = document.getElementById('musicToggle');
+    const weddingMusic = document.getElementById('weddingMusic');
+    const playIcon = document.querySelector('.play-icon');
+    const pauseIcon = document.querySelector('.pause-icon');
+    
+    let isPlaying = false;
+    
+    // Try to auto-play on page load
+    window.addEventListener('load', function() {
+        weddingMusic.play().then(function() {
+            // Auto-play successful
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'inline';
+            musicToggle.classList.add('playing');
+            isPlaying = true;
+        }).catch(function(error) {
+            // Auto-play blocked by browser - will play on first user interaction
+            console.log('Auto-play blocked, waiting for user interaction');
+        });
+    });
+    
+    // Manual toggle control
+    musicToggle.addEventListener('click', function() {
+        if (isPlaying) {
+            weddingMusic.pause();
+            playIcon.style.display = 'inline';
+            pauseIcon.style.display = 'none';
+            musicToggle.classList.remove('playing');
+        } else {
+            weddingMusic.play().catch(function(error) {
+                console.log('Audio playback failed:', error);
+            });
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'inline';
+            musicToggle.classList.add('playing');
+        }
+        isPlaying = !isPlaying;
+    });
+    
+    // Handle audio events
+    weddingMusic.addEventListener('play', function() {
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'inline';
+        musicToggle.classList.add('playing');
+        isPlaying = true;
+    });
+    
+    weddingMusic.addEventListener('pause', function() {
+        playIcon.style.display = 'inline';
+        pauseIcon.style.display = 'none';
+        musicToggle.classList.remove('playing');
+        isPlaying = false;
+    });
+    
+    // Fallback: Try to play on first user interaction if auto-play failed
+    let hasInteracted = false;
+    document.addEventListener('click', function() {
+        if (!hasInteracted && !isPlaying) {
+            weddingMusic.play().catch(function(error) {
+                // User will need to click the play button manually
+            });
+            hasInteracted = true;
+        }
+    }, { once: true });
 </script>
 
 </body>
